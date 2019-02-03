@@ -3,15 +3,19 @@ const API_URL = 'https://api.football-data.org';
 
 class FootballAPi {
     constructor(key, plan) {
-        api: key,
-        plan: plan
+        this.api = key,
+        this.plan = plan
     }
 
     fetch(path) {
         return {
             url: `${API_URL}${path}`,
             headers: {
-                'X-Auth-Token': this.api
+                'X-Auth-Token': this.api,
+                'Access-Control-Allow-Methods': "GET",
+                'Access-Control-Allow-Origin': "*",
+                'Access-Control-Allow-Headers': "x-auth-token, x-response-control",
+                'Content-Length': 0
             },
             json: true
         }

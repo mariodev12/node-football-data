@@ -1,6 +1,8 @@
 const FootballApi = require('./index.js');
-const fb = new FootballApi('API_KEY')
+const config = require('./config.js');
 
-fb.getCompetitions('TIER_ONE', (err, response, body) => {
+const footballData = new FootballApi(config.API_KEY, 'TIER_ONE')
+
+footballData.competitions((err, response, body) => {
     console.log(body)
 })
