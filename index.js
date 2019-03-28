@@ -75,8 +75,7 @@ class FootballAPi {
     }
 
     playerMatches(id, from, to, idCompetitions, callback) {
-        const competitionsIds = idCompetitions.join(',')
-        return request(this.fetch(`/v2/players/${id}/matches/?dateFrom=${from}?dateTo=${to}?competitions=${competitionsIds}`), callback)
+        return request(this.fetch(`/v2/players/${id}/matches/?dateFrom=${from}?dateTo=${to}?competitions=${idCompetitions.join(',')}`), callback)
     }
 }
 
